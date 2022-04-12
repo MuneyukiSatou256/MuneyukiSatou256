@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href='{% static "diary/style.css" %}'>
+</head>
+
+
+<body>
+<div class="reg">
+<form method="post" action="{% url 'diary:Login' %}">
+    {% csrf_token %}
+    
+    <table class="reg_form">
+    <tr>
+    <td><label for="userid">ユーザーID:</label></td>
+    <td><input type="text" name="userid"></td>
+    <td><label for="password">パスワード：</label></td>
+    <td><input type="password" name="password"></td>
+    </tr>
+    </table>
+   <input type="submit" class="btn" value="login">
+</form>
+</div>
+
+<p class="message">アカウントをお持ちですか？
+<a href="{% url 'diary:diary_register' %}">アカウントを作成</a>
+</p>
+
+
+</body>
+
+
+</html>
