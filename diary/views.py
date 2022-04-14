@@ -27,6 +27,7 @@ class IndexView(TemplateView):
 class DiaryCreateView(CreateView):
     template_name = 'diary_create.html'
     form_class=DiaryForm
+    
     success_url=reverse_lazy('diary:diary_create_complete')
     
     def form_valid(self,form):
@@ -34,8 +35,16 @@ class DiaryCreateView(CreateView):
         form.instance.user = user_obj
         return super(DiaryCreateView, self).form_valid(form)
     
+    # def get_context_data(self, *args, **kwargs):
+    #     context = super().get_context_data(*args, **kwargs)
+    #     context['tag_list'] = Tag.objects.all
+    #     return context
+    
+    
 class DiaryCreateCompleteView(TemplateView):
     template_name='diary_create_complete.html'
+    
+    
 
 #@method_decorator(login_required, name='dispatch')
 class DiaryListView(ListView):
@@ -49,7 +58,7 @@ class DiaryListView(ListView):
         
         
         msgs = diary_table.objects.filter(user_id=self.request.user.id)
-        page = Paginator(msgs,4)
+        page = Paginator(msgs,8)
         
         params = {
             'diary_table_list':page.page(num),

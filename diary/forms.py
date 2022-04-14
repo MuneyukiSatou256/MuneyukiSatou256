@@ -5,9 +5,10 @@ from django.contrib.auth.models import User
 class DiaryForm(forms.ModelForm):
     class Meta:
         model = diary_table
-        fields = ('date','title','text',)
+        fields = ('date','title','text','image')
         
         #excludeに設定したフィールドは、userがformに入力しない
+        
     
 class AccountForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput(),label="パスワード")
