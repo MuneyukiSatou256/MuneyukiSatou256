@@ -14,6 +14,7 @@ from pathlib import Path
 
 import os
 from django.conf.global_settings import LOGGING
+from pickle import FALSE
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,9 +27,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-v)m-ec3lq#eml6hbi+%jkv3bs7^z)mqg0#dv*)z0&&2$-i5wtz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]
 
 
 # Application definition
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'diary',
+    'django_ses',
     #'accounts.apps.AccountsConfig',
 ]
 
@@ -127,6 +131,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/usr/share/nginx/html/static'
+MEDIA_ROOT = '/usr/share/nginx/html/media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -150,10 +156,11 @@ LOGGING = {
     },
     # ハンドラの設定
     'handlers': {
-        'console': {
+        'file': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
             'formatter': 'production',
+            'filename':os.path.join(BASE_DIR,'logs/django.log'),
         },
     },
     # ロガーの設定
