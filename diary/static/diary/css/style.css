@@ -21,7 +21,8 @@ main{
 	width:100%;
 	position: absolute;
 
-
+/* 	background-image:url("./../../diary/image/town-1.jpg"); */
+	background-size:  cover;
 
 }
 
@@ -36,33 +37,24 @@ main{
 }
 
 .header-image{
-	height:300px;
-	background-image:url("./../../diary/image/buiding_2.jpg"); 
-	background-size:cover;
-    /* 
-    background-size:coverの説明
-    画像をコンテナーいっぱいにできるだけ大きく拡大縮小し、必要に応じて画像を引き伸ばします。
-    画像の比率が要素と異なる場合は、何もない空間が残らないように、上下または左右が切り取られます。
-    
-    要はコンテナの大きさいっぱいに画面を埋めるということ。
- */
-	background-size:cover;
+	width:100%;
+	
+	text-align:center;
+	
 }
 .header-is-top{
 	/*
 	border-bottom:1px solid #CCC;
 	*/
-
+	color: #fff;
 	width:100%;
 	/*
 	background-color: #f4f4f4;
 
 	position:fixed;
 	top:0;
-
-    background-color:#777;*/
-    color: #4b4b4b; 
-
+*/
+    background-color:#777;
 	height:50px;
 	margin: auto;
 	border-bottom:1px solid black;
@@ -78,10 +70,8 @@ main{
 	
 	
 }
-.header-inner > p{
+.header-inner p{
 	margin:0;
-    font-weight:bold;
-    font-size:20px;
 	
 }
 
@@ -98,8 +88,8 @@ h1 a{
 
 
 	font-size:14px;
-	 color: #4b4b4b; 
-
+	/* color: #4b4b4b; */
+	color:#fff;
 	margin: 0 0 0 15px;
     border-radius: 16px;
 }
@@ -117,8 +107,8 @@ nav{
 .content-section{
 	
 	
-	padding-top:30px;
-	padding-bottom:20px;
+	padding-top:10rem;
+	padding-bottom:3rem;
 	
 	display:grid;
 	/* column-gapは横との余白*/
@@ -227,6 +217,6 @@ footer{
 	position:absolute;/*　絶対位置　*/
 	bottom:0;
 	border-top:1px solid black;
-/* 	background-color:#777; */
+	background-color:#777;
 	
 }
